@@ -15,11 +15,3 @@ def create_user_data():
         "name": generate_random_string(5)
         }
     return user_data
-
-
-def create_user_login():
-    user_login = {
-        "email": f'{generate_random_string(6)}@yandex.ru',
-        "password": generate_random_string(6),
-        }
-    return user_login

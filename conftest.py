@@ -13,3 +13,7 @@ def create_and_delete_user():
     token = response.json()["accessToken"]
     yield response, payload, login_data, token
     requests.delete(Urls.USER_URL, headers={'Authorization': f'{token}'})
+
+    def test_user_login_success(self, create_and_delete_user):
+        response = requests.post(Urls.LOGIN_URL, data=create_and_delete_user[2])
+        assert response.status_code == 200 and response.json().get("success") is True
